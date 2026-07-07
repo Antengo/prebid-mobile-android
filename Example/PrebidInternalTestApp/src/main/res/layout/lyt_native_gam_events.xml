@@ -20,7 +20,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnCustomAdRequestSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnFetchDemandResultFailure" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnUnifiedRequestSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCustomAdRequestSuccess" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPrimaryAdRequestFailure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnUnifiedRequestSuccess" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnNativeAdLoaded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPrimaryAdRequestFailure" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPrimaryAdWinCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnNativeAdLoaded" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPrimaryAdWinUnified"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPrimaryAdWinCustom" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnFetchDemandResultFailure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnFetchDemandResultSuccess" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnPrimaryAdWinUnified" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnFetchDemandResultSuccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adContainer" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdImpression"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

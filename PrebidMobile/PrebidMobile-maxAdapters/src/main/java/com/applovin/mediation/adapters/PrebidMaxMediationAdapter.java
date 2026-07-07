@@ -19,8 +19,8 @@ import com.applovin.mediation.adapters.prebid.managers.MaxNativeManager;
 import com.applovin.mediation.adapters.prebid.managers.MaxRewardedManager;
 import com.applovin.sdk.AppLovinSdk;
 
-import org.prebid.mobile.PrebidMobile;
-import org.prebid.mobile.TargetingParams;
+import com.sellwild.prebid.SellwildPrebid;
+import com.sellwild.prebid.TargetingParams;
 
 /**
  * Prebid mediation adapter for AppLovin MAX integration.
@@ -47,7 +47,7 @@ public class PrebidMaxMediationAdapter extends MediationAdapterBase implements M
             OnCompletionListener onCompletionListener
     ) {
         setConsents(parameters);
-        if (PrebidMobile.isSdkInitialized()) {
+        if (SellwildPrebid.isSdkInitialized()) {
             onCompletionListener.onCompletion(InitializationStatus.INITIALIZED_SUCCESS, null);
         }
     }
@@ -140,12 +140,12 @@ public class PrebidMaxMediationAdapter extends MediationAdapterBase implements M
 
     @Override
     public String getAdapterVersion() {
-        return PrebidMobile.SDK_VERSION;
+        return SellwildPrebid.SDK_VERSION;
     }
 
     @Override
     public String getSdkVersion() {
-        return PrebidMobile.SDK_VERSION;
+        return SellwildPrebid.SDK_VERSION;
     }
 
 

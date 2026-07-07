@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.applovin.mediation.adapter.parameters.MaxAdapterResponseParameters;
-import org.prebid.mobile.ParametersMatcher;
-import org.prebid.mobile.PrebidNativeAd;
-import org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
-import org.prebid.mobile.rendering.bidding.display.BidResponseCache;
+import com.sellwild.prebid.ParametersMatcher;
+import com.sellwild.prebid.PrebidNativeAd;
+import com.sellwild.prebid.rendering.bidding.data.bid.BidResponse;
+import com.sellwild.prebid.rendering.bidding.display.BidResponseCache;
 
 import java.util.HashMap;
 import java.util.Map;

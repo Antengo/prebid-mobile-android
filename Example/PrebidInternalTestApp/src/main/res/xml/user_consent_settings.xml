@@ -27,12 +27,12 @@
             android:title="CMPPresent"
             app:iconSpaceReserved="false" />
 
-        <org.prebid.mobile.renderingtestapp.widgets.EditTextPreferenceWithValue
+        <com.sellwild.prebid.renderingtestapp.widgets.EditTextPreferenceWithValue
             android:key="@string/key_subject_to_gdpr"
             android:title="SubjectToGDPR"
             app:iconSpaceReserved="false" />
 
-        <org.prebid.mobile.renderingtestapp.widgets.EditTextPreferenceWithValue
+        <com.sellwild.prebid.renderingtestapp.widgets.EditTextPreferenceWithValue
             android:key="@string/key_consent_string"
             android:title="ConsentString"
             app:iconSpaceReserved="false" />
@@ -43,17 +43,17 @@
         android:title="TCF v2"
         app:iconSpaceReserved="false">
 
-        <org.prebid.mobile.renderingtestapp.widgets.IntegerEditTextPreferenceWithValue
+        <com.sellwild.prebid.renderingtestapp.widgets.IntegerEditTextPreferenceWithValue
             android:key="@string/key_cmp_sdk_id"
             android:title="CMP SDK ID"
             app:iconSpaceReserved="false" />
 
-        <org.prebid.mobile.renderingtestapp.widgets.IntegerEditTextPreferenceWithValue
+        <com.sellwild.prebid.renderingtestapp.widgets.IntegerEditTextPreferenceWithValue
             android:key="@string/key_subject_to_gdpr_v2"
             android:title="SubjectToGDPR"
             app:iconSpaceReserved="false" />
 
-        <org.prebid.mobile.renderingtestapp.widgets.EditTextPreferenceWithValue
+        <com.sellwild.prebid.renderingtestapp.widgets.EditTextPreferenceWithValue
             android:key="@string/key_consent_string_v2"
             android:title="ConsentString"
             app:iconSpaceReserved="false" />
@@ -64,7 +64,7 @@
         android:title="CCPA"
         app:iconSpaceReserved="false">
 
-        <org.prebid.mobile.renderingtestapp.widgets.EditTextPreferenceWithValue
+        <com.sellwild.prebid.renderingtestapp.widgets.EditTextPreferenceWithValue
             android:key="@string/key_us_privacy"
             android:title="US Privacy String"
             app:iconSpaceReserved="false" />

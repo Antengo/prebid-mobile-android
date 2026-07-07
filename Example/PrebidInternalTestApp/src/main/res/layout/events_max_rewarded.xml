@@ -5,62 +5,62 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdLoaded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/event_admob_loaded" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdDisplayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onAdDisplayed"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdHidden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onAdHidden"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onAdClicked"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnRewardedVideoStarted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onRewardedVideoStarted"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnRewardedVideoCompleted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onRewardedVideoCompleted"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnUserRewarded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onUserRewarded"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdLoadFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onAdLoadFailed"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdDisplayFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

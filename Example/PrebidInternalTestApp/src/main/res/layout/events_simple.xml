@@ -20,20 +20,20 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdLoaded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onAdLoaded" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdDisplayed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onAdDisplayed"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

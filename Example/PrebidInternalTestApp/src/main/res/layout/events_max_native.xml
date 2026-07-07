@@ -5,27 +5,27 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnNativeAdLoaded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onNativeAdLoaded" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnNativeAdClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onNativeAdClicked"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnNativeAdLoadFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/onNativeAdLoadFailed"
         android:layout_marginTop="@dimen/event_top_margin" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnAdRevenuePaid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

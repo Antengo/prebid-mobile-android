@@ -8,10 +8,10 @@ import com.applovin.mediation.adapter.MaxAdapterError;
 import com.applovin.mediation.adapter.listeners.MaxRewardedAdapterListener;
 import com.applovin.mediation.adapter.parameters.MaxAdapterResponseParameters;
 import com.applovin.mediation.adapters.prebid.ParametersChecker;
-import org.prebid.mobile.api.exceptions.AdException;
-import org.prebid.mobile.rendering.bidding.display.InterstitialController;
-import org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
-import org.prebid.mobile.rendering.interstitial.rewarded.Reward;
+import com.sellwild.prebid.api.exceptions.AdException;
+import com.sellwild.prebid.rendering.bidding.display.InterstitialController;
+import com.sellwild.prebid.rendering.bidding.interfaces.InterstitialControllerListener;
+import com.sellwild.prebid.rendering.interstitial.rewarded.Reward;
 
 public class MaxRewardedManager {
 

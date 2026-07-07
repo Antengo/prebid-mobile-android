@@ -12,12 +12,12 @@ import com.applovin.mediation.adapter.parameters.MaxAdapterResponseParameters;
 import com.applovin.mediation.adapters.prebid.ListenersCreator;
 import com.applovin.mediation.adapters.prebid.ParametersChecker;
 
-import org.prebid.mobile.LogUtil;
-import org.prebid.mobile.api.data.AdFormat;
-import org.prebid.mobile.api.rendering.DisplayView;
-import org.prebid.mobile.configuration.AdUnitConfiguration;
-import org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
-import org.prebid.mobile.rendering.bidding.listeners.DisplayViewListener;
+import com.sellwild.prebid.LogUtil;
+import com.sellwild.prebid.api.data.AdFormat;
+import com.sellwild.prebid.api.rendering.DisplayView;
+import com.sellwild.prebid.configuration.AdUnitConfiguration;
+import com.sellwild.prebid.rendering.bidding.data.bid.BidResponse;
+import com.sellwild.prebid.rendering.bidding.listeners.DisplayViewListener;
 
 public class MaxBannerManager {
 

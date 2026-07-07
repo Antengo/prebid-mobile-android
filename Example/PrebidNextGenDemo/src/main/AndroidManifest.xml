@@ -79,19 +79,19 @@
             android:name=".activities.ads.rendering.RenderingApiDisplayBanner320x50Activity"
             android:exported="true" />
         <activity
-            android:name="org.prebid.mobile.prebidnextgendemo.activities.ads.rendering.RenderingApiDisplayInterstitialActivity"
+            android:name="com.sellwild.prebid.prebidnextgendemo.activities.ads.rendering.RenderingApiDisplayInterstitialActivity"
             android:exported="true" />
         <activity
-            android:name="org.prebid.mobile.prebidnextgendemo.activities.ads.rendering.RenderingApiVideoRewardedActivity"
+            android:name="com.sellwild.prebid.prebidnextgendemo.activities.ads.rendering.RenderingApiVideoRewardedActivity"
             android:exported="true" />
         <activity
-            android:name="org.prebid.mobile.prebidnextgendemo.activities.ads.rendering.RenderingApiVideoBannerActivity"
+            android:name="com.sellwild.prebid.prebidnextgendemo.activities.ads.rendering.RenderingApiVideoBannerActivity"
             android:exported="true" />
         <activity
-            android:name="org.prebid.mobile.prebidnextgendemo.activities.ads.rendering.RenderingApiVideoInterstitialActivity"
+            android:name="com.sellwild.prebid.prebidnextgendemo.activities.ads.rendering.RenderingApiVideoInterstitialActivity"
             android:exported="true" />
         <activity
-            android:name="org.prebid.mobile.prebidnextgendemo.activities.ads.rendering.RenderingApiNativeActivity"
+            android:name="com.sellwild.prebid.prebidnextgendemo.activities.ads.rendering.RenderingApiNativeActivity"
             android:exported="true" />
     </application>
 

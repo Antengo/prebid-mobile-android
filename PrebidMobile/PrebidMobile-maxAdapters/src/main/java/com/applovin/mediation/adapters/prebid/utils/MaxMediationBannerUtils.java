@@ -4,12 +4,12 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import com.applovin.mediation.adapters.PrebidMaxMediationAdapter;
 import com.applovin.mediation.ads.MaxAdView;
-import org.prebid.mobile.LogUtil;
-import org.prebid.mobile.rendering.bidding.data.bid.BidResponse;
-import org.prebid.mobile.rendering.bidding.display.PrebidMediationDelegate;
-import org.prebid.mobile.rendering.models.internal.VisibilityTrackerOption;
-import org.prebid.mobile.rendering.models.ntv.NativeEventTracker;
-import org.prebid.mobile.rendering.utils.helpers.VisibilityChecker;
+import com.sellwild.prebid.LogUtil;
+import com.sellwild.prebid.rendering.bidding.data.bid.BidResponse;
+import com.sellwild.prebid.rendering.bidding.display.PrebidMediationDelegate;
+import com.sellwild.prebid.rendering.models.internal.VisibilityTrackerOption;
+import com.sellwild.prebid.rendering.models.ntv.NativeEventTracker;
+import com.sellwild.prebid.rendering.utils.helpers.VisibilityChecker;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;

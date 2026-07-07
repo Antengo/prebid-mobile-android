@@ -1,1 +1,1 @@
--keep class org.prebid.mobile.admob.*Adapter
+-keep class com.sellwild.prebid.admob.*Adapter

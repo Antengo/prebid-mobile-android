@@ -2,7 +2,7 @@ package com.applovin.mediation.adapters;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.prebid.mobile.Util;
+import com.sellwild.prebid.Util;
 
 import static org.junit.Assert.assertEquals;
 

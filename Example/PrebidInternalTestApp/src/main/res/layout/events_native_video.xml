@@ -20,7 +20,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPlaybackStarted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnVideoLoadingFinished" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPlaybackFinished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPlaybackStarted" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPlaybackPaused"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPlaybackFinished" />
 
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPlaybackResumed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPlaybackPaused" />
 
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPlaybackMuted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPlaybackResumed" />
 
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnPlaybackUnMuted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPlaybackMuted" />
 
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnFailure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPlaybackUnMuted" />
 
-    <org.prebid.mobile.renderingtestapp.widgets.EventCounterView
+    <com.sellwild.prebid.renderingtestapp.widgets.EventCounterView
         android:id="@+id/btnVideoLoadingFinished"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -3,9 +3,9 @@ package com.applovin.mediation.adapters.prebid;
 import com.applovin.mediation.adapter.MaxAdapterError;
 import com.applovin.mediation.adapter.listeners.MaxAdViewAdapterListener;
 import com.applovin.mediation.adapter.listeners.MaxInterstitialAdapterListener;
-import org.prebid.mobile.api.exceptions.AdException;
-import org.prebid.mobile.rendering.bidding.interfaces.InterstitialControllerListener;
-import org.prebid.mobile.rendering.bidding.listeners.DisplayViewListener;
+import com.sellwild.prebid.api.exceptions.AdException;
+import com.sellwild.prebid.rendering.bidding.interfaces.InterstitialControllerListener;
+import com.sellwild.prebid.rendering.bidding.listeners.DisplayViewListener;
 
 public class ListenersCreator {
 

@@ -7,16 +7,16 @@
     android:keepScreenOn="true"
     android:orientation="vertical">
 
-    <org.prebid.mobile.drprebid.qrscanning.camera.CameraSourcePreview
+    <com.sellwild.prebid.drprebid.qrscanning.camera.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <org.prebid.mobile.drprebid.qrscanning.camera.GraphicOverlay
+        <com.sellwild.prebid.drprebid.qrscanning.camera.GraphicOverlay
             android:id="@+id/graphicOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </org.prebid.mobile.drprebid.qrscanning.camera.CameraSourcePreview>
+    </com.sellwild.prebid.drprebid.qrscanning.camera.CameraSourcePreview>
 
 </LinearLayout>

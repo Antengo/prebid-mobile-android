@@ -7,8 +7,8 @@ import com.applovin.mediation.adapter.listeners.MaxNativeAdAdapterListener;
 import com.applovin.mediation.nativeAds.MaxNativeAd;
 import com.applovin.mediation.nativeAds.MaxNativeAdView;
 
-import org.prebid.mobile.PrebidNativeAd;
-import org.prebid.mobile.PrebidNativeAdEventListener;
+import com.sellwild.prebid.PrebidNativeAd;
+import com.sellwild.prebid.PrebidNativeAdEventListener;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

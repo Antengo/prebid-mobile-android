@@ -18,8 +18,8 @@ import com.applovin.mediation.adapters.prebid.ParametersChecker;
 import com.applovin.mediation.adapters.prebid.PrebidMaxNativeAd;
 import com.applovin.mediation.nativeAds.MaxNativeAd;
 
-import org.prebid.mobile.PrebidNativeAd;
-import org.prebid.mobile.rendering.bidding.events.EventsNotifier;
+import com.sellwild.prebid.PrebidNativeAd;
+import com.sellwild.prebid.rendering.bidding.events.EventsNotifier;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;

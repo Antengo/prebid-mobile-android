@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "org.prebid.mobile.javademo"
+    namespace "com.sellwild.prebid.javademo"
     setCompileSdkVersion(34)
     setBuildToolsVersion("35.0.1")
     defaultConfig {
@@ -9,7 +9,7 @@ android {
         targetSdkVersion 34
         versionCode 1
         versionName "1.0.0"
-        applicationId "org.prebid.mobile.javademo"
+        applicationId "com.sellwild.prebid.javademo"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
