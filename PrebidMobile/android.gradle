@@ -1,6 +1,48 @@
 apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
+android.publishing {
+    singleVariant("release") {
+        withSourcesJar()
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.findByName("release")
+                groupId = rootProject.artifactGroupId
+                artifactId = project.name
+                version = rootProject.prebidSdkVersionName
+                
+                // Fix project() dependencies to use correct Maven coordinates
+                pom.withXml {
+                    def dependenciesNode = asNode().dependencies?.getAt(0)
+                    if (dependenciesNode != null) {
+                        dependenciesNode.dependency.each { dep ->
+                            def groupIdNode = dep.groupId?.getAt(0)
+                            def artifactIdNode = dep.artifactId?.getAt(0)
+                            def versionNode = dep.version?.getAt(0)
+                            
+                            // Fix omsdk-android dependency
+                            if (artifactIdNode?.text() == 'omsdk-android') {
+                                groupIdNode?.setValue(rootProject.artifactGroupId)
+                                versionNode?.setValue(rootProject.omSdkVersion)
+                            }
+                            // Fix internal Prebid project dependencies (PrebidMobile, PrebidMobile-core)
+                            if (groupIdNode?.text()?.contains('sellwild-prebid-mobile-android')) {
+                                groupIdNode?.setValue(rootProject.artifactGroupId)
+                                versionNode?.setValue(rootProject.prebidSdkVersionName)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 android {
     namespace "com.sellwild.prebid"
     setCompileSdkVersion(rootProject.prebidSdkCompileVersion)
