@@ -172,8 +172,24 @@ Key files that have Sellwild-specific changes:
 - `PrebidMobile/android.gradle` — Maven publishing config with POM fixups
 - `PrebidMobile/omsdk-android/build.gradle` — Maven publishing for vendored AAR
 - `gradle/libs.versions.toml` — GMA version pinned to 23.6.0
-- `build.gradle` — `artifactGroupId = "com.sellwild"`
+- `build.gradle` — `artifactGroupId = "com.sellwild"`, `prebidSdkVersionName` carries the `-swN` patch suffix
 - All source files — package/class renames
+- `PrebidMobile/PrebidMobile-core/.../api/rendering/BannerView.java` — **Sellwild patch** (see below)
+
+## Sellwild patches
+
+Behavioral changes on top of the shaded upstream. These are NOT produced by the
+rename script, so **re-apply them after every upstream merge** (step 3 above).
+
+### 3.3.2-sw1 — multiformat (banner + outstream video) on the rendering `BannerView`
+
+- **File:** `PrebidMobile/PrebidMobile-core/src/main/java/com/sellwild/prebid/api/rendering/BannerView.java`
+- **Why:** upstream's rendering `BannerView` only exposes `setVideoPlacementType()`, which calls `adUnitConfig.setAdFormat(VAST)` — that CLEARS banner, so the imp becomes video-only. There is no way to request banner AND video on one `BannerView`, so prebidOnly (no-ad-server) placements could not serve outstream video without losing banner fill. (iOS's `BannerView` exposes `adUnitConfig.adFormats`, so iOS already does this.)
+- **Change:** added two public passthroughs delegating to the already-public `AdUnitConfiguration` API (the same path `InterstitialAdUnit(EnumSet<AdUnitFormat>)` uses):
+  - `setAdUnitFormats(EnumSet<AdUnitFormat>)` → `adUnitConfig.setAdUnitFormats(...)`
+  - `setVideoParameters(VideoParameters)` → `adUnitConfig.setVideoParameters(...)`
+- **Render side is unchanged/verified:** `BannerView` → `DisplayView` → `PrebidRenderer.createBannerAdView` → `PrebidDisplayView`, which branches on `response.isVideo()` (`VideoView` vs banner). So no rendering wiring is needed — only the request-side formats were gated.
+- **Consumer:** `SellwildSDK` Android `SellwildAdView.ensurePrebidBanner()` calls these when `SellwildVideo.isEnabled(...)`.
 
 ## Testing Checklist
 
