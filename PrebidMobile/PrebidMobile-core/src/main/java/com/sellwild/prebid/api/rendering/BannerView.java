@@ -28,8 +28,11 @@ import androidx.annotation.VisibleForTesting;
 import com.sellwild.prebid.AdSize;
 import com.sellwild.prebid.LogUtil;
 import com.sellwild.prebid.SellwildPrebid;
+import com.sellwild.prebid.VideoParameters;
 import com.sellwild.prebid.api.data.AdFormat;
+import com.sellwild.prebid.api.data.AdUnitFormat;
 import com.sellwild.prebid.api.data.VideoPlacementType;
+import java.util.EnumSet;
 import com.sellwild.prebid.api.exceptions.AdException;
 import com.sellwild.prebid.api.rendering.listeners.BannerVideoListener;
 import com.sellwild.prebid.api.rendering.listeners.BannerViewListener;
@@ -388,6 +391,26 @@ public class BannerView extends FrameLayout {
     @Nullable
     public VideoPlacementType getVideoPlacementType() {
         return VideoPlacementType.mapToVideoPlacementType(adUnitConfig.getPlacementTypeValue());
+    }
+
+    /**
+     * Sellwild patch (3.3.2-sw1): enable MULTIFORMAT (banner + outstream video) on
+     * the rendering BannerView. Upstream only exposes {@link #setVideoPlacementType},
+     * which calls {@code adUnitConfig.setAdFormat(VAST)} — that CLEARS banner, making
+     * the imp video-only. These setters delegate to the already-public
+     * {@link AdUnitConfiguration} multiformat API (the same path
+     * {@code InterstitialAdUnit(EnumSet<AdUnitFormat>)} already uses), so a single imp
+     * can request banner AND video. The existing render path
+     * (DisplayView -> PrebidRenderer -> PrebidDisplayView) renders whichever creative
+     * wins. Mirrors iOS prebidOnly. See FORK-MAINTENANCE.md -> "Sellwild patches".
+     */
+    public void setAdUnitFormats(EnumSet<AdUnitFormat> adUnitFormats) {
+        adUnitConfig.setAdUnitFormats(adUnitFormats);
+    }
+
+    /** Sellwild patch (3.3.2-sw1): set VideoParameters for multiformat outstream. */
+    public void setVideoParameters(VideoParameters videoParameters) {
+        adUnitConfig.setVideoParameters(videoParameters);
     }
 
     /**
