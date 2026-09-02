@@ -175,6 +175,7 @@ Key files that have Sellwild-specific changes:
 - `build.gradle` — `artifactGroupId = "com.sellwild"`, `prebidSdkVersionName` carries the `-swN` patch suffix
 - All source files — package/class renames
 - `PrebidMobile/PrebidMobile-core/.../api/rendering/BannerView.java` — **Sellwild patch** (see below)
+- `PrebidMobile/PrebidMobile-core/.../rendering/networking/parameters/BasicParameterBuilder.java` — **Sellwild patch** (see below)
 
 ## Sellwild patches
 
@@ -190,6 +191,13 @@ rename script, so **re-apply them after every upstream merge** (step 3 above).
   - `setVideoParameters(VideoParameters)` → `adUnitConfig.setVideoParameters(...)`
 - **Render side is unchanged/verified:** `BannerView` → `DisplayView` → `PrebidRenderer.createBannerAdView` → `PrebidDisplayView`, which branches on `response.isVideo()` (`VideoView` vs banner). So no rendering wiring is needed — only the request-side formats were gated.
 - **Consumer:** `SellwildSDK` Android `SellwildAdView.ensurePrebidBanner()` calls these when `SellwildVideo.isEnabled(...)`.
+
+### 3.3.2-sw2 — honor `VideoParameters` on the rendering path (`BasicParameterBuilder`)
+
+- **File:** `PrebidMobile/PrebidMobile-core/src/main/java/com/sellwild/prebid/rendering/networking/parameters/BasicParameterBuilder.java` (`setVideoImpValues`)
+- **Why:** the sw1 `setVideoParameters` on a rendering `BannerView` was **inert beyond `video.w/h`**. `setVideoImpValues` reads the full `VideoParameters` (mimes, protocols, playbackmethod, api, plcmt, placement, durations, bitrates, skippable, battr) only inside `if (adConfiguration.isOriginalAdUnit())` — a flag no rendering-API class sets. So a multiformat `BannerView`'s outstream imp shipped with hardcoded defaults and `placement = INTERSTITIAL` (wrong for in-feed outstream). Reported by the Prebid Mobile Android team on the upstream PR.
+- **Change:** relax the gate to `if (adConfiguration.isOriginalAdUnit() || adConfiguration.getVideoParameters() != null)`. Reads params only when explicitly set — so existing rendering units that never call `setVideoParameters` keep the default branch. This also fixes placement: our params carry `placement=InBanner` / `plcmt=Standalone`, so no separate `setPlacementType` is needed. **Do NOT** flip `isOriginalAdUnit` (it drives far more than video imp building).
+- **Consumer:** with sw1's `setVideoParameters`, `SellwildVideo.outstreamParameters()` now actually reaches the imp.
 
 ## Testing Checklist
 
