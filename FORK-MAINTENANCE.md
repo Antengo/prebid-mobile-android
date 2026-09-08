@@ -199,6 +199,17 @@ rename script, so **re-apply them after every upstream merge** (step 3 above).
 - **Change:** relax the gate to `if (adConfiguration.isOriginalAdUnit() || adConfiguration.getVideoParameters() != null)`. Reads params only when explicitly set — so existing rendering units that never call `setVideoParameters` keep the default branch. This also fixes placement: our params carry `placement=InBanner` / `plcmt=Standalone`, so no separate `setPlacementType` is needed. **Do NOT** flip `isOriginalAdUnit` (it drives far more than video imp building).
 - **Consumer:** with sw1's `setVideoParameters`, `SellwildVideo.outstreamParameters()` now actually reaches the imp.
 
+### 3.3.2-sw3 — expose the winning creative size on the rendering `BannerView`
+
+- **File:** `PrebidMobile/PrebidMobile-core/src/main/java/com/sellwild/prebid/api/rendering/BannerView.java`
+- **Why:** the rendering `BannerView`'s `BannerViewListener.onAdLoaded(BannerView)` gives consumers no way to learn which size actually won. For a multi-size placement (e.g. 300x250 + 320x50 requested together) the host must reserve the bounding box of all requested sizes and cannot shrink the slot to the creative that rendered — leaving whitespace when a smaller size wins. (iOS's rendering delegate already reports this via `bannerView(_:didReceiveAdWithAdSize:)`.)
+- **Change:** added two non-breaking public getters delegating to the already-populated `bidResponse` field:
+  - `getCreativeWidth()` → `bidResponse.getWinningBid().getWidth()` (dp, 0 when no fill)
+  - `getCreativeHeight()` → `bidResponse.getWinningBid().getHeight()` (dp, 0 when no fill)
+  Getters (not a new listener method) so no implementer breaks. `onAdLoaded` fires after `bidResponse` is set, so the value is populated at callback time. On the GAM (`onAdServerWin`) path the served view owns its size, so these reflect the Prebid winning bid only.
+- **Consumer:** `SellwildSDK` Android `SellwildAdView` prebid banner listener reads these in `onAdLoaded` to emit the real `onAdResize(width, height)` and tighten the reserved multi-size slot.
+- **Upstream:** reported as a gap on `prebid/prebid-mobile-android` (issue + PR) — the rendering API should surface the won creative size like iOS does.
+
 ## Testing Checklist
 
 Before releasing an update:
