@@ -134,4 +134,20 @@ public class GeoLocationParameterBuilderTest {
         assertEquals(LATITUDE.floatValue(), adRequestInput.getBidRequest().getDevice().getGeo().lat, 0.0f);
         assertEquals(LONGITUDE.floatValue(), adRequestInput.getBidRequest().getDevice().getGeo().lon, 0.0f);
     }
+
+    @Test
+    public void testToAlpha3_convertsAlpha2AndPassesThroughAlpha3() {
+        // Telephony (getSimCountryIso/getNetworkCountryIso) and Geocoder return
+        // alpha-2; oRTB device.geo.country wants alpha-3. Full ISO coverage.
+        assertEquals("USA", GeoLocationParameterBuilder.toAlpha3("US"));
+        assertEquals("USA", GeoLocationParameterBuilder.toAlpha3("us"));
+        assertEquals("GBR", GeoLocationParameterBuilder.toAlpha3("GB"));
+        assertEquals("CAN", GeoLocationParameterBuilder.toAlpha3("CA"));
+        // Already alpha-3 -> unchanged (idempotent).
+        assertEquals("USA", GeoLocationParameterBuilder.toAlpha3("USA"));
+        // Empty / null / unknown -> "" so no malformed country is emitted.
+        assertEquals("", GeoLocationParameterBuilder.toAlpha3(""));
+        assertEquals("", GeoLocationParameterBuilder.toAlpha3(null));
+        assertEquals("", GeoLocationParameterBuilder.toAlpha3("ZZ"));
+    }
 }
