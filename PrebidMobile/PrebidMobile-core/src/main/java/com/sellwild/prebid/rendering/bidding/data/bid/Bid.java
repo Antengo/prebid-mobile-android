@@ -374,6 +374,11 @@ public class Bid {
 
         bid.adm = MacrosResolutionHelper.resolveAuctionMacros(bid.adm, macrosModelMap);
         bid.nurl = MacrosResolutionHelper.resolveAuctionMacros(bid.nurl, macrosModelMap);
+        // burl is fired as an impression (viewable) tracker on the rendering path
+        // (CreativeModelMakerBids -> CreativeFactory IMPRESSION), so it must carry
+        // the cleared price. iOS substitutes burl at Bid init; Android previously
+        // did not, firing a literal ${AUCTION_PRICE}.
+        bid.burl = MacrosResolutionHelper.resolveAuctionMacros(bid.burl, macrosModelMap);
     }
 
 
