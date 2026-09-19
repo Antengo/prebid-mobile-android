@@ -58,6 +58,22 @@ public class BidTest {
     }
 
     @Test
+    public void whenFromJSONObject_burlContainsMacros_ReturnParsedBidWithReplacedBurl()
+    throws JSONException {
+        // burl is fired as a viewable/impression tracker on the rendering path, so
+        // ${AUCTION_PRICE}/${AUCTION_PRICE:B64} must be substituted with the cleared
+        // price (0.15 -> "0.15", base64 "MC4xNQ==") — regression guard for burl going
+        // out with a literal macro.
+        JSONObject jsonBid = new JSONObject(
+            "{\"id\":\"bidId\",\"impid\":\"impId\",\"price\":0.15,"
+                + "\"burl\":\"http://burl.com?price=${AUCTION_PRICE}&b64=${AUCTION_PRICE:B64}\"}"
+        );
+        Bid bid = Bid.fromJSONObject(jsonBid);
+        assertNotNull(bid);
+        assertEquals("http://burl.com?price=0.15&b64=MC4xNQ==", bid.getBurl());
+    }
+
+    @Test
     public void events_eventListContainsWinEvent() throws Exception {
         JSONObject jsonBid = new JSONObject(ResourceUtils.convertResourceToString("bidding_bid_obj_events.json"));
         Bid bid = Bid.fromJSONObject(jsonBid);
