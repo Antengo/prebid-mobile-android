@@ -210,6 +210,21 @@ rename script, so **re-apply them after every upstream merge** (step 3 above).
 - **Consumer:** `SellwildSDK` Android `SellwildAdView` prebid banner listener reads these in `onAdLoaded` to emit the real `onAdResize(width, height)` and tighten the reserved multi-size slot.
 - **Upstream:** reported as a gap on `prebid/prebid-mobile-android` (issue + PR) — the rendering API should surface the won creative size like iOS does.
 
+### 3.3.2-sw4 — `burl` price macro + ISO alpha-3 `device.geo.country`
+
+- **Files:** `.../rendering/bidding/data/bid/Bid.java`, `.../rendering/networking/parameters/GeoLocationParameterBuilder.java`
+- **Why:** `${AUCTION_PRICE}` was substituted in `nurl`/`adm` but not `burl`, so demand partners rejected billing notices for an unpopulated price macro. Telephony/Geocoder country sources return alpha-2 (`US`) while OpenRTB `device.geo.country` is alpha-3 (`USA`).
+- **Change:** `burl` goes through `MacrosResolutionHelper.resolveAuctionMacros`; `geo.country` is normalized with `toAlpha3()` (unmappable → omitted). Upstream: prebid/prebid-mobile-android#1022 (opt-in variant).
+
+### 3.3.2-sw5 — upstream backports (#948, #996)
+
+- **Files:** `.../api/rendering/PrebidDisplayView.java`, `.../rendering/networking/parameters/UserConsentParameterBuilder.java` (+ tests)
+- **Why / change:**
+  - prebid/prebid-mobile-android#948: banner `onAdLoaded` fired before the creative view was attached (premature load/impression signals, blank slots). Now fires right after `addView(creative)`, still before `onAdDisplayed`.
+  - prebid/prebid-mobile-android#996: COPPA was sent at `regs.ext.coppa`; now top-level `regs.coppa` per OpenRTB.
+- **Tests:** also aligned the two `BasicParameterBuilderTest` `*_full` rendering tests with sw2 (they asserted pre-sw2 defaults).
+- **Known pre-existing test issues (not release blockers):** `GoogleAdVersionTest.checkIfLastVersionUsed` fails by design (we pin GMA 23.6.0 for WeatherBug); two `BasicParameterBuilderTest` plugin-renderer tests are order-dependent (they rely on another test class having registered the default renderer).
+
 ## Testing Checklist
 
 Before releasing an update:
