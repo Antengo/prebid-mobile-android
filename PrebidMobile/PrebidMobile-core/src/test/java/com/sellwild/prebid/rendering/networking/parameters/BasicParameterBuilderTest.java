@@ -945,21 +945,23 @@ public class BasicParameterBuilderTest {
         assertNotNull(video);
         assertNotNull(video.w);
         assertNotNull(video.h);
-        assertEquals(new Integer(5), video.placement);
-        assertEquals(new Integer(1), video.linearity);
-        assertEquals(new Integer(1), video.playbackend);
+        // sw2: VideoParameters set on a rendering unit are honored (same path as
+        // the original API), so the explicit params replace the rendering defaults.
         assertArrayEquals(new int[]{3}, video.delivery);
-        assertArrayEquals(new String[]{"video/mp4", "video/3gpp", "video/webm", "video/mkv"}, video.mimes);
-        assertArrayEquals(new int[]{2, 5}, video.protocols);
-
-        assertNull(video.minduration);
-        assertNull(video.maxduration);
-        assertNull(video.api);
-        assertNull(video.minbitrate);
-        assertNull(video.maxbitrate);
-        assertNull(video.playbackmethod);
+        assertEquals(new Integer(2), video.placement);
+        assertEquals(new Integer(101), video.minduration);
+        assertEquals(new Integer(102), video.maxduration);
+        assertEquals(new Integer(201), video.minbitrate);
+        assertEquals(new Integer(202), video.maxbitrate);
+        assertEquals(new Integer(0), video.startDelay);
+        assertEquals(new Integer(1), video.linearity);
+        assertArrayEquals(new String[]{"Mime1", "Mime2"}, video.mimes);
+        assertArrayEquals(new int[]{11, 12}, video.protocols);
+        assertArrayEquals(new int[]{21, 22}, video.api);
+        assertArrayEquals(new int[]{31, 32}, video.playbackmethod);
         assertNull(video.pos);
-        assertNull(video.startDelay);
+        assertNull(video.playbackend);
+        assertEquals(Integer.valueOf(1), video.skippable);
     }
 
     @Test
@@ -1021,21 +1023,23 @@ public class BasicParameterBuilderTest {
         assertNotNull(video);
         assertNotNull(video.w);
         assertNotNull(video.h);
-        assertEquals(new Integer(5), video.placement);
-        assertEquals(new Integer(1), video.linearity);
-        assertEquals(new Integer(2), video.playbackend);
+        // sw2: VideoParameters set on a rendering unit are honored (same path as
+        // the original API), so the explicit params replace the rendering defaults.
         assertArrayEquals(new int[]{3}, video.delivery);
-        assertArrayEquals(new String[]{"video/mp4", "video/3gpp", "video/webm", "video/mkv"}, video.mimes);
-        assertArrayEquals(new int[]{2, 5}, video.protocols);
-
-        assertNull(video.minduration);
-        assertNull(video.maxduration);
-        assertNull(video.api);
-        assertNull(video.minbitrate);
-        assertNull(video.maxbitrate);
-        assertNull(video.playbackmethod);
+        assertEquals(new Integer(2), video.placement);
+        assertEquals(new Integer(101), video.minduration);
+        assertEquals(new Integer(102), video.maxduration);
+        assertEquals(new Integer(201), video.minbitrate);
+        assertEquals(new Integer(202), video.maxbitrate);
+        assertEquals(new Integer(0), video.startDelay);
+        assertEquals(new Integer(1), video.linearity);
+        assertArrayEquals(new String[]{"Mime1", "Mime2"}, video.mimes);
+        assertArrayEquals(new int[]{11, 12}, video.protocols);
+        assertArrayEquals(new int[]{21, 22}, video.api);
+        assertArrayEquals(new int[]{31, 32}, video.playbackmethod);
         assertNull(video.pos);
-        assertNull(video.startDelay);
+        assertNull(video.playbackend);
+        assertEquals(Integer.valueOf(1), video.skippable);
     }
 
     @Test
